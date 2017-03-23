@@ -1,7 +1,10 @@
 # Full Stack Application using MEAN Stack
 M - MongoDB
+
 E- Express
+
 A - AngularJS
+
 N - Node.js
 
 This is simple full stack Application which runs on HTTPS server if the key and certificate is provided in $root/sslcert directory.
