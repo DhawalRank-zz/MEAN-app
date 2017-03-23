@@ -1,0 +1,32 @@
+{
+  "name": "mean-app",
+  "version": "1.0.0",
+  "description": "MEAN Stack Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhawalRank/MEAN-app.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Dhawal Rank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhawalRank/MEAN-app/issues"
+  },
+  "homepage": "https://github.com/DhawalRank/MEAN-app#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mocha": "^3.2.0",
+    "mongodb": "^2.2.25"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
