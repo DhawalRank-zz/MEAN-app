@@ -24,5 +24,5 @@ If not then server will use insecure HTTP connection.
     ```sh
     $ git clone https://github.com/DhawalRank/MEAN-app.git && cd MEAN-app
     $ npm install
-    $ npm app
+    $ node app
     ```
