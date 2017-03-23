@@ -20,20 +20,9 @@ If not then server will use insecure HTTP connection.
   1. [NodeJS](https://nodejs.org/en/download/)
   2. [npm](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
   
-* [Using Wget](#)
-    ```sh
-    $ wget https://github.com/DhawalRank/MEAN-app && cd MEAN-app
-    $ npm install
-    $ npm start
-    ```
-* [Using curl](#)
-    ```sh
-    $ curl https://github.com/DhawalRank/MEAN-app && cd MEAN-app
-    $ npm install
-    $ npm start
-    ```
 * [Clone the Repo](#)
     ```sh
     $ git clone https://github.com/DhawalRank/MEAN-app.git && cd MEAN-app
     $ npm install
     $ npm start
+    ```
