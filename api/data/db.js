@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var dbUrl = 'mongodb://localhost:27017/mean-hotel';
+var dbUrl = 'mongodb://localhost:27017/mean-hotel/hotels';
 mongoose.Promise = require('bluebird');
 mongoose.connect(dbUrl);
 

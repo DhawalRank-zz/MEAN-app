@@ -61,4 +61,3 @@ var hotelSchema = new mongoose.Schema({
 //model() --> converts schemas to models which node.js understands
 //@param: name, schema
 mongoose.model('Hotel', hotelSchema);
-mongoose.model('Reviews', reviewSchema);

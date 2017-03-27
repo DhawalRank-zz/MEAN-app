@@ -16,10 +16,6 @@ module.exports.getAllReviews = function(req, res) {
       else if(!aHotel){
         response.status = 500; response.message = {error: "Hotel not found"};
       }
-      else if(aHotel.reviews.length === 0){
-        console.log('Reviews Not found');
-        response.status = 500; response.message = {message: 'Reviews Not found'};
-      }
       else{
         console.log('Found reviews of hotel with ID: ' + aHotel.reviews);
         response.message = aHotel.reviews;
@@ -49,13 +45,13 @@ module.exports.getReviewByID = function(req, res) {
       else{
         var aReview = aHotel.reviews.id(reviewID);
         if(!aReview){
-          console.log('Invalid Review ID');
-          response.status = 500; response.message = {message: 'Review not found'};
+          response.status = 404; response.message = {error: "not found"};
         }
         else{
           console.log('Found review with ID ' + reviewID);
           response.status = 200; response.message = aReview;
         }
+
       }
       res
         .status(response.status)
@@ -168,18 +164,12 @@ module.exports.deleteReviewByID = function(req, res){
       }
       else{
         var aReview = aHotel.reviews.id(reviewID).remove();
-        if(!aReview){
-          console.log('Invalid Review ID');
-          response.status = 500; response.message = {message: 'Review not found'};
-        }
-        else{
           console.log('Found review with ID ' + reviewID);
           aHotel.save(function(err, updatedReview){
             if(err){
               response.status = 500; response.message = err;
             }
           });
-        }
         res
           .status(response.status)
           .json(response.message);
