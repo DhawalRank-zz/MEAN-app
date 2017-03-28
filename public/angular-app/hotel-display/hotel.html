@@ -1,0 +1,38 @@
+<h1>Information on {{ me.hotel.name }} <hotel-rating> stars="me.stars"</hotel-rating></h1>
+<p>{{ me.hotel.location.address }}</p>
+<p>{{ me.hotel.description }}</p>
+<p>This Hotel offers following services: </p>
+<ul>
+  <li ng-repeat="service in me.hotel.services">{{ service }}</li>
+</ul>
+<h2>Reviews</h2>
+<ul>
+  <li ng-repeat="review in me.hotel.reviews">{{ review.name }} says: {{ review.review }}</li>
+</ul>
+<div>
+  <form name="me.reviewForm" ng-submit="me.addReview()">
+    <div class="col-xs-2">
+      <div class="form-group">
+        <label for="name">Name: </label><input type="text" class="form-control" name="name" required ng-minlength="2" ng-model="me.name">
+        <div class="form-group" ng-show="me.reviewForm.name.$dirty && me.reviewForm.name.$invalid && me.isSubmitted">
+          <p>Name should be more than 2 characters</p>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="rating">Rating: </label><input type="number" class="form-control" name="rating" required ng-pattern="/^[0-5]$/" ng-model="me.rating">
+      <div class="form-group" ng-show="me.reviewForm.rating.$dirty && me.reviewForm.rating.$invalid && me.isSubmitted">
+        <p>Rating should be between 0-5 </p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="review">Review: </label><textarea name="review" class="form-control" required ng-model="me.review"></textarea>
+      <div class="form-group" ng-show="me.reviewForm.review.$dirty && me.isSubmitted">
+        <p>Please add a review</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-success">Add Review</button>
+    </div>
+  </div>
+  </form>
+</div>

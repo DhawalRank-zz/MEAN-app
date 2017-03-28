@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="meanhotel">
   <head>
       <title>MEAN Hotel</title>
-      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script src="jquery/jquery-3.2.0.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="css/custom.css">
   </head>
   <body>
-    <h1>MEAN Hotel Home Page</h1>
+    <div ng-view>
+
+    </div>
     <footer class="footer">
       <div class="container">
         <p class="text-muted text-center">
@@ -18,7 +22,18 @@
           <small>&copy; 2017 Dhawal Rank Corporation </small>
         </p>
       </div>
+
     </footer>
-    <script src="jquery/jquery-3.2.0.min.js"></script>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="angular-app/app.js"></script>
+    <script src="angular-app/hotel-data-factory/hotel.data.factory.js"></script>
+    <script src="angular-app/hotel-list/hotel.list.controller.js"></script>
+    <script src="angular-app/hotel-display/hotel.display.controller.js"></script>
+    <script src="angular-app/hotel-rating/hotel.rating.directive.js"></script>
+
+
+
   </body>
 </html>
