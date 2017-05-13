@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var ctrlHotels = require('../controllers/hotels.controller.js');
 var ctrlReviews = require('../controllers/reviews.controller.js');
+var ctrlUsers = require('../controllers/users.controller.js');
+
 router
   .route('/hotels')
   //get executes function with req and res on its own
@@ -9,7 +11,6 @@ router
   .get(ctrlHotels.getAllHotels)
   .post(ctrlHotels.addHotel);
 
-module.exports = router;
 
 router
   .route('/hotels/:hotelID')
@@ -28,3 +29,13 @@ router
   .get(ctrlReviews.getReviewByID)
   .put(ctrlReviews.updateReviewByID)
   .delete(ctrlReviews.deleteReviewByID);
+
+router
+  .route('/users/register')
+  .post(ctrlUsers.register);
+
+  router
+    .route('/users/login')
+    .post(ctrlUsers.login);
+
+  module.exports = router;

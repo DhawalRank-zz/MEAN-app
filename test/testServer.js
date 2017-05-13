@@ -23,8 +23,8 @@ server.listen(app.get('port'), function () {
 /* -----------Server code ends--------------- */
 
 //display more information on console by using middleware
-app.use(function (req, res, next) {
-  console.log(req.method, req.url);
+app.use(function (req, res, err, next) {
+  console.log(err);
   next();
 });
 
