@@ -14,7 +14,7 @@ function loginController($http, $location, $window, AuthFactory, jwtHelper) {
   me.login = function() {
     if (me.userName && me.password) {
       var user = {
-        username: me.userName,
+        userName: me.userName,
         password: me.password
       };
 

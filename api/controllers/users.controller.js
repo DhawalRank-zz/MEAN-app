@@ -17,7 +17,7 @@ module.exports.register = function(req, res) {
       res.status(400).json(err);
     }
     else{
-      res.status(201).json(createdUser);
+      res.status(201);
     }
   });
 };
