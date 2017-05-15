@@ -71,3 +71,26 @@ module.exports.authenticate = function(req, res, next){
     res.status(403).json({"error":"No token present"});
   }
 };
+
+module.exports.getUser = function(req, res){
+  var userName = req.params.userName;
+  User
+    .findOne({userName: userName})
+    .exec(function(err, foundUser){
+      var response = {
+        status: 400,
+        message: "Uncaught Error"
+      };
+      if(err){
+        response.status = 400; response.message = err;
+      }
+      else if(foundUser === null){
+        response.status = 400; response.message = {"error":"Unauthorized User"};
+      }
+      else{
+          response.status = 200; response.message = foundUser;
+      }
+      res.status(response.status)
+      .json(response.message);
+    });
+}

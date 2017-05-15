@@ -38,6 +38,8 @@ function config($httpProvider, $routeProvider) {
     })
     .when('/profile', {
       templateUrl: 'angular-app/profile/profile.html',
+      controller: profileController,
+      controllerAs: 'me',
       access: {
         restricted: true
       }
@@ -49,7 +51,8 @@ function config($httpProvider, $routeProvider) {
 
 function run($rootScope, $location, $window, AuthFactory) {
   $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
-    if (nextRoute.access !== undefined && nextRoute.access.restricted && !$window.sessionStorage.token && !AuthFactory.isLoggedIn) {
+    if (nextRoute.access !== undefined && nextRoute.access.restricted && !AuthFactory.isLoggedIn) {
+      delete $window.sessionStorage.token;
       event.preventDefault();
       $location.path('/');
     }

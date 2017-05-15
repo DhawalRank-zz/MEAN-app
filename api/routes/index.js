@@ -38,4 +38,8 @@ router
     .route('/users/login')
     .post(ctrlUsers.login);
 
+  router
+    .route('/users/getUser/:userName')
+    .get(ctrlUsers.getUser)
+
   module.exports = router;

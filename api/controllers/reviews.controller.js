@@ -75,15 +75,13 @@ var _addReview = function(req, res, aHotel){
     else{
       res
         .status(201)
-        .json(aHotel.reviews[aHotel.reviews.length-1]);
     }
   });
 };
 
 module.exports.addReview = function(req, res) {
-  console.log('Get Review by ID');
+  console.log('Get Hotel by ID');
   var hotelID = req.params.hotelID;
-  var reviewID = req.params.reviewID;
   Hotel
     .findById(hotelID)
     .exec(function(err, aHotel){
