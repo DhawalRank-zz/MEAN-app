@@ -21,7 +21,12 @@ angular.module('meanhotel')
           me.message = "Registration Successful";
           me.error = "";
         }).catch(function(err){
-          console.log(err);
+          if(err.data.code === 11000){
+            me.error = "Username already taken. Please choose another one.";
+          }
+          else{
+            console.log(err);
+          }
         });
       }
     };

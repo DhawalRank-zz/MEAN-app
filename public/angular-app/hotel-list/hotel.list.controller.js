@@ -3,7 +3,7 @@ angular.module('meanhotel')
 
 function hotelsController(hotelDataFactory) {
   var me = this;
-  me.title = 'MEAN Hotel App';
+  me.title = 'List of Hotels';
   hotelDataFactory.hotelList().then(function(response) {
     me.hotels = response;
   });

@@ -14,12 +14,14 @@ function hotelDataFactory($http){
     return $http.get('/api/hotels/' + id).then(compelete).catch(failed);
   }
   function postReview(id, review){
+    console.log("here");
     return $http.post('/api/hotels/' + id + '/reviews', review).then(compelete).catch(failed);
   }
   function compelete(response){
     return response.data;
   }
   function failed(err){
+    console.log(err);
     console.log(err.statusText);
   }
 }

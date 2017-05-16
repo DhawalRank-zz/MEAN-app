@@ -12,13 +12,6 @@ function hotelController($window, $route, hotelDataFactory, $routeParams, AuthFa
 function _getStarRating(stars) {
   return new Array(stars);
 }
-me.isLoggedIn = function() {
-  if (AuthFactory.isLoggedIn) {
-    return true;
-  } else {
-    return false;
-  }
-};
 
 me.addReview = function() {
   var token = jwtHelper.decodeToken($window.sessionStorage.token);
@@ -32,6 +25,9 @@ me.addReview = function() {
     hotelDataFactory.postReview(id, postData).then(function(response){
       if(response._id){
         $route.reload();
+      }
+      else {
+        console.log({status: 500, message: 'Failed to create review'});
       }
     }).catch(function(err){
       console.log(err);

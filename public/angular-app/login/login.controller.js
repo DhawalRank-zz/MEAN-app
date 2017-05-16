@@ -1,6 +1,6 @@
 angular.module('meanhotel').controller('loginController', loginController);
 
-function loginController($http, $location, $window, AuthFactory, jwtHelper) {
+function loginController($http, $location, $window, AuthFactory, jwtHelper, $route) {
   var me = this;
 
   me.isLoggedIn = function() {
@@ -25,6 +25,7 @@ function loginController($http, $location, $window, AuthFactory, jwtHelper) {
           var token = $window.sessionStorage.token;
           var decodedToken = jwtHelper.decodeToken(token);
           me.loggedInUser = decodedToken.userName;
+          $route.reload();
         }
       }).catch(function(error) {
         console.log(error);
