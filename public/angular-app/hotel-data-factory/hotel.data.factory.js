@@ -5,10 +5,11 @@ function hotelDataFactory($http){
   return{
     hotelList: hotelList,
     displayHotel: displayHotel,
-    postReview: postReview
+    postReview: postReview,
+    addHotel: addHotel
   };
   function hotelList() {
-    return $http.get('/api/hotels/?count=10').then(compelete).catch(failed);
+    return $http.get('/api/hotels/').then(compelete).catch(failed);
   }
   function displayHotel(id) {
     return $http.get('/api/hotels/' + id).then(compelete).catch(failed);
@@ -16,6 +17,9 @@ function hotelDataFactory($http){
   function postReview(id, review){
     console.log("here");
     return $http.post('/api/hotels/' + id + '/reviews', review).then(compelete).catch(failed);
+  }
+  function addHotel(aHotel) {
+    return $http.post('/api/hotels/', aHotel).then(compelete).catch(failed);
   }
   function compelete(response){
     return response.data;

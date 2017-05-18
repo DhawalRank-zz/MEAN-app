@@ -34,37 +34,12 @@ var runGeoQuery = function(req, res){
 //gets all the hotels
 module.exports.getAllHotels = function(req, res) {
   console.log('Get all Hotels');
-  var offset = 0, count = 5, maxCount = 10;
-
   if(req.query && req.query.lat && req.query.lng){
     runGeoQuery(req, res);
     return;
   }
-
-  if(req.query && req.query.offset){
-    offset = parseInt(req.query.offset, 10);
-  }
-  if(req.query && req.query.count){
-    count = parseInt(req.query.count, 10);
-  }
-  if(isNaN(offset) || isNaN(count)){
-    res
-      .status(400)
-      .json({error: 'Count or offset should be a number'});
-    return;
-  }
-  if(count > maxCount){
-    res
-      .status(500)
-      .json({error: "max count of 10 reached"});
-    return;
-  }
   Hotel
     .find()
-    //select start point
-    .skip(offset)
-    //select end point
-    .limit(count)
     .exec(function(err, hotels){
       var response = {
         status: 200,

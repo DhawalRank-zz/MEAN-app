@@ -3,4 +3,21 @@
   <ul>
     <li ng-repeat="hotel in me.hotels"><a ng-href='#!/hotel/{{ hotel._id }}' style="color: orangered;">{{ hotel.name }}</a></li>
   </ul>
+    <ul ng-if="me.pager.pages.length" class="pagination justify-content-center">
+      <li class="page-item" s ng-class="{disabled:me.pager.currentPage === 1}">
+          <a class="page-link" style="color: orangered;" href="" ng-click="me.setPage(1)">First</a>
+      </li>
+      <li class="page-item" ng-class="{disabled:me.pager.currentPage === 1}">
+          <a class="page-link" href="" style="color: orangered;" ng-click="me.setPage(me.pager.currentPage - 1)">Previous</a>
+      </li>
+      <li class="page-item" ng-repeat="page in me.pager.pages" ng-class="{active:me.pager.currentPage === page}">
+          <a class="page-link" href="" style="color: orangered;" ng-click="me.setPage(page)">{{page}}</a>
+      </li>
+      <li class="page-item" ng-class="{disabled:me.pager.currentPage === me.pager.totalPages}">
+          <a class="page-link" href="" style="color: orangered;" ng-click="me.setPage(me.pager.currentPage + 1)">Next</a>
+      </li>
+      <li class="page-item" ng-class="{disabled:me.pager.currentPage === me.pager.totalPages}">
+          <a class="page-link" href="" style="color: orangered;" ng-click="me.setPage(me.pager.totalPages)">Last</a>
+      </li>
+    </ul>
 </div>

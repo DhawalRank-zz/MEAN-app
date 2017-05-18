@@ -9,6 +9,7 @@
        <li ng-class="me.isActiveTab('hotels')" class="nav-item"><a class="nav-link" href="#!/hotels">Hotels</a></li>
        <li ng-class="me.isActiveTab('register')" ng-if="!me.isLoggedIn()" class="nav-item"><a class="nav-link" href="#!/register">Register</a></li>
        <li ng-class="me.isActiveTab('profile')" ng-if="me.isLoggedIn()" class="nav-item"><a class="nav-link" href="#!/profile">Profile</a></li>
+       <li ng-class="me.isActiveTab('profile')" ng-if="me.isLoggedIn()" class="nav-item"><a class="nav-link" href="#!/addHotel">Add a Hotel</a></li>
      </ul>
      <form ng-if="!me.isLoggedIn()" class="form-inline my-2 my-lg-0" role="login" ng-submit="me.login()">
       <div class="form-group" ng-class="{'has-error': me.error}">

@@ -44,6 +44,14 @@ function config($httpProvider, $routeProvider) {
         restricted: true
       }
     })
+    .when('/addHotel', {
+      templateUrl: 'angular-app/add-hotel/add-hotel.html',
+      controller: addHotelController,
+      controllerAs: 'me',
+      access: {
+        restricted: true
+      }
+    })
     .otherwise({
       redirectTo: '/'
     });

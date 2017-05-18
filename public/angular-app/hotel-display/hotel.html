@@ -6,6 +6,10 @@
   <ul>
     <li ng-repeat="service in me.hotel.services">{{ service }}</li>
   </ul>
+  Rooms:
+  <ul>
+    <li ng-repeat="room in me.hotel.rooms">{{ room.type }} @ ${{ room.price }}/night.<br>Description: {{ room.description }}. Total: {{ room.number }} rooms.</li>
+  </ul>
   <h2>Reviews</h2>
   <ul>
     <li ng-repeat="review in me.hotel.reviews">{{ review.name }} says: {{ review.review }}</li>
