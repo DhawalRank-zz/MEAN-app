@@ -97,7 +97,7 @@ var _splitArray = function(input){
 //add a hotel
 module.exports.addHotel = function(req, res){
   console.log("Add new Hotel");
-  if(req.body && req.body.name && req.body.stars){
+  if(req.body && req.body.name && req.body.stars && req.body.currency && req.body.description && req.body.address && req.body.lng && req.body.lat && req.body.services){
     Hotel.create(
       {
         name: req.body.name,
